@@ -58,13 +58,16 @@ return returnStatment;
 //declaire the new function
 function playGame(){
 //create variables that are for keeping score
-let scorePlayer;
-let scoreComputer;
+let scorePlayer = 0;
+let scoreComputer = 0;
 //create a window prompt to get players choice
-let askOne = window.prompt("Rock, Paper, or Scissors?");
+
 //play 5 times 
+let askOne = window.prompt("Rock, Paper, or Scissors?");
 let roundOne = playRound(askOne, getComputerChoice());
 console.log(roundOne);
+scoreKeeper(roundOne);
+console.log(scorePlayer + " " + scoreComputer)
 let askTwo = window.prompt("Rock, Paper, or Scissors?");
 let roundTwo = playRound(askTwo, getComputerChoice());
 console.log(roundTwo);
@@ -78,5 +81,13 @@ let askFive = window.prompt("Rock, Paper, or Scissors?");
 let roundFive = playRound(askFive, getComputerChoice());
 console.log(roundFive);
 //display the winner at the end of 5 rounds
+
+function scoreKeeper(whichRound){
+    if (whichRound.charAt(0) == "W"){
+    scorePlayer++;
+    }else if (whichRound.charAt(0) == "L"){
+    scoreComputer++;
+    }
+    }
 }
 console.log(playGame());
