@@ -29,7 +29,7 @@ playerSelection = playerSelection.toLowerCase();
 if ((playerSelection == "rock" && computerSelection == "Paper") || 
     (playerSelection == "paper" && computerSelection == "Scissors") ||
     (playerSelection == "scissors" && computerSelection == "Rock")){
-        returnStatment = "You lose! ";
+        returnStatment = "Loser! ";
         if(computerSelection == "Paper"){
             returnStatment += "Paper beats Rock";
         }else if (computerSelection == "Scissors"){
@@ -40,7 +40,7 @@ if ((playerSelection == "rock" && computerSelection == "Paper") ||
 else if ((playerSelection == "rock" && computerSelection == "Scissors") ||
         (playerSelection == "paper" && computerSelection == "Rock") ||
         (playerSelection == "scissors" && computerSelection == "Paper")){
-            returnStatment = "You win! ";
+            returnStatment = "Winner! ";
             if(computerSelection == "Paper"){
                 returnStatment += "Scissors beats Paper";
             }else if (computerSelection == "Scissors"){
@@ -55,6 +55,28 @@ else {
 return returnStatment;
 }
 
-const playerSelection = "Rock";
-const computerChoice = getComputerChoice();
-console.log(playRound(playerSelection, computerChoice));
+//declaire the new function
+function playGame(){
+//create variables that are for keeping score
+let scorePlayer;
+let scoreComputer;
+//create a window prompt to get players choice
+let askOne = window.prompt("Rock, Paper, or Scissors?");
+//play 5 times 
+let roundOne = playRound(askOne, getComputerChoice());
+console.log(roundOne);
+let askTwo = window.prompt("Rock, Paper, or Scissors?");
+let roundTwo = playRound(askTwo, getComputerChoice());
+console.log(roundTwo);
+let askThree = window.prompt("Rock, Paper, or Scissors?");
+let roundThree = playRound(askThree, getComputerChoice());
+console.log(roundThree);
+let askFour = window.prompt("Rock, Paper, or Scissors?");
+let roundFour = playRound(askFour, getComputerChoice());
+console.log(roundFour);
+let askFive = window.prompt("Rock, Paper, or Scissors?");
+let roundFive = playRound(askFive, getComputerChoice());
+console.log(roundFive);
+//display the winner at the end of 5 rounds
+}
+console.log(playGame());
