@@ -60,6 +60,7 @@ function playGame(){
 //create variables that are for keeping score
 let scorePlayer = 0;
 let scoreComputer = 0;
+let endResult;
 //create a window prompt to get players choice
 
 //play 5 times 
@@ -67,21 +68,25 @@ let askOne = window.prompt("Rock, Paper, or Scissors?");
 let roundOne = playRound(askOne, getComputerChoice());
 console.log(roundOne);
 scoreKeeper(roundOne);
-console.log(scorePlayer + " " + scoreComputer)
 let askTwo = window.prompt("Rock, Paper, or Scissors?");
 let roundTwo = playRound(askTwo, getComputerChoice());
 console.log(roundTwo);
+scoreKeeper(roundTwo);
 let askThree = window.prompt("Rock, Paper, or Scissors?");
 let roundThree = playRound(askThree, getComputerChoice());
 console.log(roundThree);
+scoreKeeper(roundThree);
 let askFour = window.prompt("Rock, Paper, or Scissors?");
 let roundFour = playRound(askFour, getComputerChoice());
 console.log(roundFour);
+scoreKeeper(roundFour);
 let askFive = window.prompt("Rock, Paper, or Scissors?");
 let roundFive = playRound(askFive, getComputerChoice());
 console.log(roundFive);
-//display the winner at the end of 5 rounds
+scoreKeeper(roundFive);
 
+
+//create a score keeping function
 function scoreKeeper(whichRound){
     if (whichRound.charAt(0) == "W"){
     scorePlayer++;
@@ -89,5 +94,16 @@ function scoreKeeper(whichRound){
     scoreComputer++;
     }
     }
+//display the winner at the end of 5 rounds
+if (scorePlayer > scoreComputer){
+    endResult = "Congradulations!!! You beat the Computer!!!"
+    return endResult;
+} else if (scorePlayer < scoreComputer){
+    endResult = "The Computer beat you. Better luck next time!"
+    return endResult;
+} else {
+    endResult = "It was a tie! Everyone is a winner!!"
+    return endResult;
+}
 }
 console.log(playGame());
